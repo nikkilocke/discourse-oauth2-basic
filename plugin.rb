@@ -185,6 +185,7 @@ class ::OAuth2BasicAuthenticator < Auth::ManagedAuthenticator
         ['name', 'email', 'email_verified'].each do |property|
           auth['info'][property] = fetched_user_details[property.to_sym] if fetched_user_details[property.to_sym]
         end
+        log("fetched_user_details: \n#{fetched_user_details.to_hash}\n");
       else
         result = Auth::Result.new
         result.failed = true
